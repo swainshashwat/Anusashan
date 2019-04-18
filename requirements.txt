@@ -1,0 +1,7 @@
+opencv
+numpy
+dlib
+pillow
+face_recognition
+pickle
+tqdm

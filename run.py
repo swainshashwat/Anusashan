@@ -3,13 +3,6 @@ import cv2
 import numpy as np
 from renderFace import renderFace
 
-def writeLandmarksToFile(landmarks, landmarksFileName):
-  with open(landmarksFileName, 'w') as f:
-    for p in landmarks.parts():
-      f.write("%s %s\n" %(int(p.x),int(p.y)))
-
-  f.close()
-
 # Landmark model location
 PREDICTOR_PATH = "landmark_model/shape_predictor_68_face_landmarks.dat"
 
@@ -50,8 +43,10 @@ while True:
   cv2.imshow("Facial Landmark detector", img)
 
   if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+    print('Quitting...')
+    break
 
-      
+  
+print('Releasing Resources...')
 cap.release()
 cv2.destroyAllWindows()
